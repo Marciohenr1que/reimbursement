@@ -4,6 +4,7 @@ FactoryBot.define do
     amount { "9.99" }
     date { Faker::Date.backward(days: 14) }
     status { 1 }
+    location { Faker::Address.city }  
 
     association :user, factory: :user
 

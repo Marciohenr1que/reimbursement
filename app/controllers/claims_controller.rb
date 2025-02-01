@@ -2,12 +2,7 @@ class ClaimsController < CrudController
   before_action :authorize_manager, only: [:index]
 
   def index
-    claims = Claim.all
-
-    if params[:filter].present? && CategoryFilter.list.keys.include?(params[:filter])
-      claims = apply_filter(claims, params[:filter])
-    end
-
+    claims = ClaimService.filter_claims_by_category(params[:filter])
     render json: claims
   end
 
@@ -19,21 +14,6 @@ class ClaimsController < CrudController
   end
 
   private
-
-  def apply_filter(claims, filter)
-    case filter
-    when "who"
-      claims.includes(:user).order("users.name")
-    when "when"
-      claims.order(date: :desc)
-    when "where"
-      claims.order(:location)
-    when "how_much"
-      claims.order(amount: :desc)
-    else
-      claims
-    end
-  end
 
   def authorize_manager
     unless current_user.manager?

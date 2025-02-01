@@ -7,6 +7,8 @@ class User < ApplicationRecord
          
 has_enumeration_for :role, with: UserRole
 validates :role, presence: true
-
-
+has_many :claims
+def manager?
+  role == UserRole.manager
+end
 end
