@@ -43,6 +43,7 @@ group :development, :test do
   gem "rubocop-rails"
   gem "rubocop-rspec"
   gem 'rspec-rails'
+  gem 'factory_bot_rails'
 end
 
 group :development do
@@ -52,6 +53,6 @@ end
 
 group :test do
   gem "database_cleaner"
-  gem "factory_bot"
+  gem 'factory_bot_rails'
 end
 
