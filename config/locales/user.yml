@@ -1,0 +1,5 @@
+pt-BR:
+  users:
+    sessions:
+      message: "Conta não cadastrada"
+      login_success: "Login realizado com sucesso"

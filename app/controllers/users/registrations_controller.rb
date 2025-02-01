@@ -4,16 +4,16 @@ class Users::RegistrationsController < Devise::RegistrationsController
   private
 
   def sign_up_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :name)
   end
 
   def account_update_params
-    params.require(:user).permit(:email, :password, :password_confirmation, :role)
+    params.require(:user).permit(:email, :password, :password_confirmation, :role, :name)
   end
 
   protected
 
-  # Evita a tentativa de salvar sessão ao registrar o usuário
+ 
   def sign_up(resource_name, resource)
     true
   end
