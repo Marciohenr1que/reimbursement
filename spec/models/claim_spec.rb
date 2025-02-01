@@ -41,4 +41,10 @@ RSpec.describe Claim, type: :model do
   it "can have attached receipts" do
     expect(claim.receipts).to be_attached
   end
+
+  it "can have tags" do
+    tag = create(:tag)  
+    claim.tags << tag
+    expect(claim.tags).to include(tag)
+  end
 end
