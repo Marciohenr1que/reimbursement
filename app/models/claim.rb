@@ -8,4 +8,5 @@ class Claim < ApplicationRecord
   validates :user, presence: true
 
   has_enumeration_for :status, with: ClaimStatus
+  has_many_attached :receipts
 end

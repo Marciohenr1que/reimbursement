@@ -6,5 +6,14 @@ FactoryBot.define do
     status { 1 }
 
     association :user, factory: :user
+
+    after(:build) do |claim|
+      claim.receipts.attach(
+        io: File.open(Rails.root.join("spec", "fixtures", "files", "receipt.jpg")),
+        filename: "receipt.jpg",
+        content_type: "image/jpeg"
+      )
+    end
   end
 end
+
