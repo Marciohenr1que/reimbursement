@@ -1,8 +1,8 @@
 FactoryBot.define do
   factory :claim do
-    description { "MyString" }
+    description { Faker::Lorem.sentence }
     amount { "9.99" }
-    date { "2025-02-01" }
+    date { Faker::Date.backward(days: 14) }
     status { 1 }
 
     association :user, factory: :user

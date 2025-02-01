@@ -17,6 +17,7 @@ gem 'devise'
 gem 'active_storage_validations'
 gem 'dotenv-rails'
 gem 'enumerate_it'
+gem 'devise-jwt'
 # Use Redis adapter to run Action Cable in production
 # gem "redis", ">= 4.0.1"
 

@@ -9,12 +9,13 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  # The secret key used by Devise. Devise uses this key to generate
+
+
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
   # Devise will use the `secret_key_base` as its `secret_key`
   # by default. You can change it below and use your own secret key.
-  # config.secret_key = 'cddb3da9c257d14b33049c6cff6765275c2ced5fd820a62aeaf84acaff5a13e427138008aac569c6bd1626a9147c00f28ba476f81c5884d4cbd10f7d184e66d5'
+  config.secret_key = 'cddb3da9c257d14b33049c6cff6765275c2ced5fd820a62aeaf84acaff5a13e427138008aac569c6bd1626a9147c00f28ba476f81c5884d4cbd10f7d184e66d5'
 
   # ==> Controller configuration
   # Configure the parent class to the devise controllers.
@@ -97,7 +98,7 @@ Devise.setup do |config|
   # Notice that if you are skipping storage for all authentication paths, you
   # may want to disable generating routes to Devise's sessions controller by
   # passing skip: :sessions to `devise_for` in your config/routes.rb
-  config.skip_session_storage = [:http_auth]
+  config.skip_session_storage = [:http_auth, :params_auth]
 
   # By default, Devise cleans up the CSRF token on authentication to
   # avoid CSRF token fixation attacks. This means that, when using AJAX
