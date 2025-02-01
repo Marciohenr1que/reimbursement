@@ -15,4 +15,10 @@ RSpec.describe User, type: :model do
     user = build(:user, password: "password", password_confirmation: "wrongpassword")
     expect(user).to_not be_valid
   end
+
+  it "is not valid without a role" do
+    user = build(:user)
+    user.role = nil
+    expect(user).to_not be_valid
+  end
 end
