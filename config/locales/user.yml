@@ -1,5 +1,7 @@
 pt-BR:
   users:
     sessions:
-      message: "Conta não cadastrada"
-      login_success: "Login realizado com sucesso"
+      create:
+        login_success: "Login realizado com sucesso"
+      login_error: "Email ou senha inválidos"
+      logout_success: "Logout realizado com sucesso"

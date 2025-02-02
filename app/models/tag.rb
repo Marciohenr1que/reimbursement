@@ -1,4 +1,4 @@
 class Tag < ApplicationRecord
-  has_and_belongs_to_many :claims
-  validates :name, presence: true, uniqueness: true
+  has_many :claim_tags, dependent: :destroy
+  has_many :claims, through: :claim_tags
 end

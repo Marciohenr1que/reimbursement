@@ -1,27 +1,26 @@
 class ClaimsController < CrudController
   before_action :authorize_manager, only: [:index]
-
-  def index
-    claims = ClaimService.filter_claims_by_category(params[:filter])
-    render json: claims
-  end
+  before_action :authenticate_user!, only: [:create]
 
   def create
-    claim = ClaimService.create_claim(current_user, claim_params)
-    render json: claim, status: :created
-  rescue ActiveRecord::RecordInvalid => e
-    render json: { errors: e.record.errors.full_messages }, status: :unprocessable_entity
+    @claim = Claims::ClaimCreator.call(current_user, claim_params)
+
+    render :create, status: :created
+  rescue StandardError => e
+    render json: { error: e.message }, status: :unprocessable_entity
   end
 
   private
 
-  def authorize_manager
-    unless current_user.manager?
-      render json: { error: "Acesso negado" }, status: :forbidden
-    end
-  end
-
   def claim_params
-    params.require(:claim).permit(:description, :amount, :date, :status, receipts: [], tags: [])
+    params.require(:claim).permit(:amount, :description, :status, :date, :location, receipts: [], tags: [])
   end
 end
+
+
+
+
+
+
+
+

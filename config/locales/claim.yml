@@ -1,0 +1,17 @@
+pt-BR:
+  claims:
+    create:
+      success: "Reclamação criada com sucesso"
+      error:
+        description_missing: "Descrição é obrigatória"
+        amount_invalid: "O valor deve ser um número positivo"
+        status_missing: "Status é obrigatório"
+        location_missing: "Localização é obrigatória"
+        receipt_limit_exceeded: "Você não pode adicionar mais de 2 recibos"
+    index:
+      empty: "Não há reclamações para mostrar"
+    user_not_found: "Usuário não encontrado"
+
+  validation:
+    amount_invalid: "O valor do reembolso deve ser maior que zero"
+    receipt_limit_exceeded: "Não é permitido mais de 2 comprovantes"
