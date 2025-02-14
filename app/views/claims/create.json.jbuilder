@@ -8,4 +8,6 @@ json.claim do
   json.status @claim.status
   json.date @claim.date
   json.location @claim.location
+  json.receipts(@claim.receipts.map { |receipt| url_for(receipt) })
+  json.tags(@claim.tags.map { |tag| {id: tag.id, name: tag.name} })
 end
