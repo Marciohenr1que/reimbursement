@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateClaimTags < ActiveRecord::Migration[7.1]
   def change
     create_table :claim_tags do |t|

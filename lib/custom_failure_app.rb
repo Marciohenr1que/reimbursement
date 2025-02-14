@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CustomFailureApp < Devise::FailureApp
   def respond
     if request.format.json?
@@ -9,7 +11,7 @@ class CustomFailureApp < Devise::FailureApp
 
   def json_error_response
     self.status = 401
-    self.content_type = 'application/json'
-    self.response_body = { error: 'Unauthorized' }.to_json
+    self.content_type = "application/json"
+    self.response_body = {error: "Unauthorized"}.to_json
   end
 end

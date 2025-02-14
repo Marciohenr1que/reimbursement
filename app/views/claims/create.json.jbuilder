@@ -1,4 +1,6 @@
-json.message I18n.t('claims.create.success')
+# frozen_string_literal: true
+
+json.message I18n.t("claims.create.success")
 json.claim do
   json.id @claim.id
   json.amount @claim.amount

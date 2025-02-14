@@ -1,4 +1,6 @@
-json.message I18n.t('users.sessions.login_success')
+# frozen_string_literal: true
+
+json.message I18n.t("users.sessions.login_success")
 json.user do
   json.id @user.id
   json.email @user.email

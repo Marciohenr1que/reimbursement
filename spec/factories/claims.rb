@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :claim do
     description { Faker::Lorem.sentence }
     amount { "9.99" }
     date { Faker::Date.backward(days: 14) }
     status { 1 }
-    location { Faker::Address.city }  
+    location { Faker::Address.city }
 
     association :user, factory: :user
 
@@ -17,4 +19,3 @@ FactoryBot.define do
     end
   end
 end
-

@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CrudController < ApplicationController
   include Paginatable
-  before_action :set_resource, only: [:show, :update, :destroy]
+  before_action :set_resource, only: %i[show update destroy]
 
   def index
     resources = resource_class.all
@@ -13,7 +15,7 @@ class CrudController < ApplicationController
 
   def create
     resource = resource_class.new(resource_params)
-    
+
     if resource.save
       render json: resource, status: :created
     else

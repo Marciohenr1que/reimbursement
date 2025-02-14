@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "active_support/core_ext/integer/time"
 
 Rails.application.configure do
@@ -13,7 +15,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-  config.active_storage.default_url_options = { host: 'http://localhost:3001' }
+  config.active_storage.default_url_options = {host: "http://localhost:3001"}
   # Enable server timing
   config.server_timing = true
 
@@ -55,7 +57,6 @@ Rails.application.configure do
 
   # Highlight code that enqueued background job in logs.
   config.active_job.verbose_enqueue_logs = true
-
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

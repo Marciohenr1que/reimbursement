@@ -1,32 +1,34 @@
-class Claims::ClaimFilterService
-  def initialize(params)
-    @params = params.to_h.symbolize_keys.compact
-  end
+# frozen_string_literal: true
 
-  def filter(scope)
-    return scope unless @params[:search].present?
+module Claims
+  class ClaimFilterService
+    def initialize(params)
+      @params = params.to_h.symbolize_keys.compact
+    end
 
-    search_value = "%#{sanitize_search_term(@params[:search])}%".downcase
+    def filter(scope)
+      return scope unless @params[:search].present?
 
-    scope
-      .left_joins(:user, :claim_tags, :tags) 
-      .where(search_conditions, search: search_value)
-      .distinct
-  end
+      search_value = "%#{sanitize_search_term(@params[:search])}%".downcase
 
-  private
+      scope
+        .left_joins(:user, :claim_tags, :tags)
+        .where(search_conditions, search: search_value)
+        .distinct
+    end
 
-  def search_conditions
-    @search_conditions ||= [
-      'LOWER(claims.description) LIKE :search',
-      'LOWER(users.name) LIKE :search',
-      'LOWER(tags.name) LIKE :search'
-    ].join(' OR ')
-  end
+    private
 
-  def sanitize_search_term(term)
-    term.gsub(/[%_\\]/) { |char| "\\#{char}" }
+    def search_conditions
+      @search_conditions ||= [
+        "LOWER(claims.description) LIKE :search",
+        "LOWER(users.name) LIKE :search",
+        "LOWER(tags.name) LIKE :search"
+      ].join(" OR ")
+    end
+
+    def sanitize_search_term(term)
+      term.gsub(/[%_\\]/) { |char| "\\#{char}" }
+    end
   end
 end
-
-

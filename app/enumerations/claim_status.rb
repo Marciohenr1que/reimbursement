@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ClaimStatus < EnumerateIt::Base
   associate_values(
     pending: 0,

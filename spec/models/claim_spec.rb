@@ -1,4 +1,6 @@
-require 'rails_helper'
+# frozen_string_literal: true
+
+require "rails_helper"
 
 RSpec.describe Claim, type: :model do
   let(:user) { create(:user) }
@@ -33,9 +35,9 @@ RSpec.describe Claim, type: :model do
   end
 
   it "is valid with different statuses" do
-    expect(build(:claim, status: 0)).to be_valid  
-    expect(build(:claim, status: 1)).to be_valid  
-    expect(build(:claim, status: 2)).to be_valid  
+    expect(build(:claim, status: 0)).to be_valid
+    expect(build(:claim, status: 1)).to be_valid
+    expect(build(:claim, status: 2)).to be_valid
   end
 
   it "can have attached receipts" do
@@ -43,7 +45,7 @@ RSpec.describe Claim, type: :model do
   end
 
   it "can have tags" do
-    tag = create(:tag)  
+    tag = create(:tag)
     claim.tags << tag
     expect(claim.tags).to include(tag)
   end

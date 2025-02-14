@@ -1,4 +1,6 @@
-json.message I18n.t('users.sessions.login_success') 
+# frozen_string_literal: true
+
+json.message I18n.t("users.sessions.login_success")
 json.user do
   json.id resource.id
   json.email resource.email
@@ -7,4 +9,4 @@ json.user do
   json.role resource.role
   json.name resource.name
 end
-json.token request.env['warden-jwt_auth.token']
+json.token request.env["warden-jwt_auth.token"]
