@@ -1,7 +1,0 @@
-pt-BR:
-  users:
-    sessions:
-      create:
-        login_success: "Login realizado com sucesso"
-      login_error: "Email ou senha inválidos"
-      logout_success: "Logout realizado com sucesso"

@@ -60,3 +60,5 @@ group :test do
   gem 'faker', '~> 2.18'
 end
 
+
+gem 'kaminari'

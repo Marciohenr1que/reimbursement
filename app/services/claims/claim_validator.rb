@@ -4,9 +4,12 @@ class Claims::ClaimValidator
       raise ActiveRecord::RecordInvalid.new(claim), I18n.t('claims.validation.amount_invalid')
     end
 
-    if claim.receipts.attached? && claim.receipts.count > 2
+    unless claim.receipts.attached?
+      raise ActiveRecord::RecordInvalid.new(claim), I18n.t('claims.validation.receipt_required')
+    end
+
+    if claim.receipts.count > 2
       raise ActiveRecord::RecordInvalid.new(claim), I18n.t('claims.validation.receipt_limit_exceeded')
     end
   end
 end
-

@@ -4,9 +4,12 @@ json.claims @claims do |claim|
   json.amount claim.amount
   json.date claim.date
   json.status claim.status
-  json.user_id claim.user_id
+  json.user_name claim.user.name 
   json.location claim.location
-  json.created_at claim.created_at
-  json.updated_at claim.updated_at
-  json.receipts claim.receipts.map(&:url)
+  json.receipts claim.receipts.map { |receipt| url_for(receipt) }
+  json.tags claim.tags.map { |tag| { id: tag.id, name: tag.name } }
 end
+
+json.currentPage @claims.current_page
+json.totalPages @claims.total_pages
+json.perPage @claims.limit_value

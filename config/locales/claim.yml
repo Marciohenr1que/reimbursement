@@ -1,7 +1,7 @@
 pt-BR:
   claims:
     create:
-      success: "Reclamação criada com sucesso"
+      success: "Pedido de Reembolso criado com sucesso"
       error:
         description_missing: "Descrição é obrigatória"
         amount_invalid: "O valor deve ser um número positivo"

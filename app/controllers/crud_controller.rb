@@ -1,4 +1,5 @@
 class CrudController < ApplicationController
+  include Paginatable
   before_action :set_resource, only: [:show, :update, :destroy]
 
   def index

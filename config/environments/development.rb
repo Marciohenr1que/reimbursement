@@ -13,7 +13,7 @@ Rails.application.configure do
 
   # Show full error reports.
   config.consider_all_requests_local = true
-
+  config.active_storage.default_url_options = { host: 'http://localhost:3001' }
   # Enable server timing
   config.server_timing = true
 

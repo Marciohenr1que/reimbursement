@@ -5,11 +5,11 @@ RSpec.describe Claims::ClaimCreator, type: :service do
   let(:claim_params) do
     {
       amount: 100.0,
-      status: 'pending',
+      status: 0, # pending
       description: 'Descrição do reembolso',
       date: '2025-02-01',
       location: 'São Paulo',
-      receipts: [Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/receipt.jpg'), 'image/jpeg')]
+      receipts: [Rack::Test::UploadedFile.new(Rails.root.join('spec/fixtures/files/receipt.jpg'), 'image/jpeg')]
     }
   end
 

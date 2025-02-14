@@ -1,0 +1,12 @@
+pt-BR:
+  errors:
+    not_found: "Registro não encontrado"
+    unprocessable_entity: "Requisição não processável"
+    invalid_token: "Token inválido ou expirado"
+    internal_server_error: "Erro interno do servidor"
+    claims:
+      amount_invalid: "O valor da reivindicação deve ser maior que zero"
+      receipt_limit_exceeded: "O limite máximo de recibos anexados é 2"
+    auth:
+      token_missing: "Token não fornecido"
+      user_not_found: "Usuário não encontrado"

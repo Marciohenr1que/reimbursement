@@ -12,8 +12,13 @@ Rails.application.routes.draw do
 
   resources :tags
   resources :claims do
-    collection do
-      get 'filter', to: 'claims#index'
-    end
+  collection do
+    get 'filter', to: 'claims#index'
   end
+
+  member do
+    patch 'update_claim', to: 'claims#update_claim'
+  end
+end
+
 end

@@ -32,6 +32,6 @@ COPY --from=builder /usr/local/bundle /usr/local/bundle
 
 COPY . .
 
-
+RUN mkdir -p tmp/pids && rm -f tmp/pids/server.pid
 EXPOSE 3000
 
